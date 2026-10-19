@@ -5,17 +5,18 @@ public class EnemyScript : MonoBehaviour
 {
     public Animator anim;
     public Transform[] points;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private int destPoint;
     EnemyStateMachine esm;
-
-
-    public float speed; 
+    public GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        esm = new EnemyStateMachine(this);
+        esm.Init(esm.enemyIdleState);
     }
 
     // Update is called once per frame

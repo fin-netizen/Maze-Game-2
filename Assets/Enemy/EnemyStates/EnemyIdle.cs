@@ -21,11 +21,27 @@ public class EnemyIdle : EnemyState
 
     public override void Update()
     {
-        idleTimer -= Time.deltaTime;
-        if(idleTimer <= 0)
+
+        IsPlayerNear();
+        
+    }
+    public void IsPlayerNear()
+    {
+        bool isPlayerNear;
+        float distance = Vector3.Distance(enemy.player.transform.position, enemy.transform.position);
+        
+        if(distance <= 10)
+        {
+            isPlayerNear = true;
+        }
+        else
+        {
+            isPlayerNear = false;
+        }
+
+        if(isPlayerNear == true)
         {
             esm.ChangeState(esm.enemyWalkState);
         }
-        
     }
 }
