@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyWalk : EnemyState 
@@ -17,6 +18,7 @@ public class EnemyWalk : EnemyState
     public override  void Update()
     {
         MakeTargetPoint();
+        CanAttackPlayer();
     }
     public override void Exit()
     {
@@ -64,5 +66,22 @@ public class EnemyWalk : EnemyState
 
 
 
+    }
+    public void CanAttackPlayer()
+    {
+        bool canAttackPlayer;
+        float distance = Vector3.Distance(enemy.player.transform.position, enemy.transform.position);
+        if(distance <= 3)
+        {
+            canAttackPlayer = true;
+        }
+        else
+        {
+            canAttackPlayer = false;
+        }
+        if(canAttackPlayer == true)
+        {
+            esm.ChangeState(esm.enemyAttackState);
+        }
     }
 }

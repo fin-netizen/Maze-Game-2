@@ -21,5 +21,12 @@ public class EnemyState
         
     }
     public virtual void FixedUpdate() { }
-    public virtual void Exit() { }
+
+    public virtual void Exit()
+    {
+    }
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+    }
 }

@@ -36,4 +36,10 @@ public class EnemyScript : MonoBehaviour
         agent.destination = points[destPoint].position;
         destPoint = (destPoint + 1) % points.Length;
     }
+
+    //add your additional collision handling here
+    void OnCollisionEnter(Collision collision)
+    {
+        esm.currentState.OnCollisionEnter(collision);
+    }
 }

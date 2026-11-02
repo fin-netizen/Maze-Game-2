@@ -12,6 +12,7 @@ public class EnemyStateMachine
     {
         enemyIdleState = new EnemyIdle(enemy, this);
         enemyWalkState = new EnemyWalk(enemy, this);
+        enemyAttackState = new EnemyAttack(enemy, this);
     }
     public void Init(EnemyState startingState)
     {
